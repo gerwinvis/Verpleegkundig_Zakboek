@@ -42,20 +42,12 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String facebookUrl = "http://www.facebook.com/verpleegkundigzakboek";
-                try {
-                    int versionCode = getPackageManager().getPackageInfo("com.facebook.katana", 0).versionCode;
-                    if (versionCode >= 3002850) {
-                        Uri uri = Uri.parse("fb://facewebmodal/f?href=" + facebookUrl);
-                        startActivity(new Intent(Intent.ACTION_VIEW, uri));
-                    } else {
-                        Uri uri = Uri.parse("fb://page/1436255413303592");
-                        startActivity(new Intent(Intent.ACTION_VIEW, uri));
-                    }
-                } catch (PackageManager.NameNotFoundException e) {
-                    Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse(facebookUrl));
-                    startActivity(viewIntent);
-                }
+                fab.setVisibility(View.GONE);
+                NotitiesFragment fragment = new NotitiesFragment();
+                android.support.v4.app.FragmentTransaction fragmentTransaction =
+                        getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
             }
         });
 
