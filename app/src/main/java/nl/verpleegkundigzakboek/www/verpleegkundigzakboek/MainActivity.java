@@ -5,7 +5,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -14,12 +13,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     NavigationView navigationView = null;
     Toolbar toolbar = null;
+
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,9 +110,9 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        fab.setVisibility(View.VISIBLE);
         if (id == R.id.nav_camera) {
-        //set the fragment initially
+            //set the fragment initially
             MainFragment fragment = new MainFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
@@ -132,9 +134,15 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_manage) {
-            Intent intent = new Intent(this, Notities.class);
-            startActivity(intent);
-            finish();
+//            Intent intent = new Intent(this, Notities.class);
+//            startActivity(intent);
+//            finish();
+            fab.setVisibility(View.GONE);
+            NotitiesFragment fragment = new NotitiesFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
 
         } else if (id == R.id.nav_share) {
             Protocollen fragment = new Protocollen();
@@ -146,7 +154,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
             Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                    "mailto","info@verpleegkundigzakboek.nl", null));
+                    "mailto", "info@verpleegkundigzakboek.nl", null));
             emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Email van verpleegkundig zakboek app");
             startActivity(Intent.createChooser(emailIntent, "Verzend e-mail"));
 
