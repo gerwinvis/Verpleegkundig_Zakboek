@@ -21,4 +21,5 @@
     <string name="note_deleted">Notitie verwijderd</string>
     <string name="note">Notitie</string>
     <string name="enter_note_here">Toets uw notitie in en druk op terug om deze op te slaan</string>
+    <string name="title_activity_druppelsnelheid">Druppelsnelheid</string>
 </resources>

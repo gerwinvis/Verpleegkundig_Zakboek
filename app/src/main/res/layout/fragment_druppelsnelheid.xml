@@ -1,0 +1,82 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="nl.verpleegkundigzakboek.www.verpleegkundigzakboek.Druppelsnelheid">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Druppelsnelheid"
+        android:id="@+id/head"
+        android:layout_gravity="center_horizontal|top"
+        android:textStyle="bold"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Druppelsnelheid 20 druppels per ml"
+        android:id="@+id/head_20"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Millimeters"
+        android:id="@+id/millimeters_20"
+        android:layout_gravity="left|top"
+        android:layout_marginTop="65dp"
+        android:layout_marginLeft="5dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/invoermilliliters"
+        android:layout_gravity="right|top"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Uren"
+        android:id="@+id/uren_20"
+        android:layout_gravity="left|top"
+        android:layout_marginTop="115dp"
+        android:layout_marginLeft="5dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/invoeruren"
+        android:layout_gravity="right|top"
+        android:layout_marginTop="110dp"
+        android:layout_marginRight="5dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bereken"
+        android:id="@+id/button_20"
+        android:layout_gravity="left|top"
+        android:layout_marginTop="150dp"
+        android:singleLine="false" />
+
+    <TextView
+        android:layout_width="222dp"
+        android:layout_height="51dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/uitkomstdruppelsperminuut"
+        android:layout_gravity="right|top"
+        android:layout_marginTop="160dp" />
+</FrameLayout>
