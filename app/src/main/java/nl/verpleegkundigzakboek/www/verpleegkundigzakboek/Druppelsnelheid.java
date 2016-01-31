@@ -7,6 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -26,6 +30,11 @@ public class Druppelsnelheid extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private EditText etMillimeters, etUren;
+    private Button btBereken;
+    private TextView tvResult;
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -64,7 +73,33 @@ public class Druppelsnelheid extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_druppelsnelheid, container, false);
+        View view = inflater.inflate(R.layout.fragment_druppelsnelheid, container, false);
+        etMillimeters = (EditText) view.findViewById(R.id.etInvoermilliliters);
+        etUren = (EditText) view.findViewById(R.id.etInvoeruren);
+        btBereken = (Button) view.findViewById(R.id.button_20);
+        tvResult = (TextView) view.findViewById(R.id.uitkomstdruppelsperminuut);
+
+        btBereken.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (etMillimeters.getText().toString().equals("")) {
+                    Toast.makeText(getActivity(), "Vul zowef milliliters als uren in!", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (etUren.getText().toString().equals("")) {
+                        Toast.makeText(getActivity(), "Vul zowef milliliters als uren in!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        tvResult.setText(roundOffTo2DecPlaces((Float.parseFloat(etMillimeters.getText().toString()) * 20)
+                                / (Float.parseFloat(etUren.getText().toString()) * 60)));
+                    }
+                }
+            }
+        });
+
+        return view;
+    }
+
+    private String roundOffTo2DecPlaces(float val) {
+        return String.format("%.2f", val);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -77,12 +112,12 @@ public class Druppelsnelheid extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+//        if (context instanceof OnFragmentInteractionListener) {
+//            mListener = (OnFragmentInteractionListener) context;
+//        } else {
+//            throw new RuntimeException(context.toString()
+//                    + " must implement OnFragmentInteractionListener");
+//        }
     }
 
     @Override

@@ -14,6 +14,7 @@ import android.widget.Button;
  */
 public class Rekenen extends Fragment {
 
+    Button btDruppelsnelheid;
 
     public Rekenen() {
         // Required empty public constructor
@@ -24,7 +25,24 @@ public class Rekenen extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rekenen, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_rekenen, container, false);
+
+        btDruppelsnelheid = (Button)view.findViewById(R.id.button_druppelsnelheid);
+        btDruppelsnelheid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Druppelsnelheid fragment = new Druppelsnelheid();
+                android.support.v4.app.FragmentTransaction fragmentTransaction =
+                        getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+//                fragmentTransaction.isAddToBackStackAllowed();
+//                fragmentTransaction.addToBackStack("");
+                fragmentTransaction.commit();
+            }
+        });
+
+        return view;
     }
 
 }

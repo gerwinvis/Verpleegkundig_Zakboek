@@ -1,19 +1,43 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="nl.verpleegkundigzakboek.www.verpleegkundigzakboek.Zakkaartjes">
+    android:orientation="vertical"
+    android:paddingTop="56dp">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="zakkaartjes"
-        android:padding="8dp"
-        android:textColor="#fff"
-        android:background="@color/colorPrimary"
-        android:textSize="28sp"
-        android:id="@+id/textView"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:id="@+id/tvDB1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/holo_red_light"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="Database 1"
+        android:textAllCaps="true"
+        android:textSize="24sp" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/tvDB2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/holo_blue_light"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="Database 2"
+        android:textAllCaps="true"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tvDB3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/holo_orange_light"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="Database 3"
+        android:textAllCaps="true"
+        android:textSize="24sp" />
+
+</LinearLayout>

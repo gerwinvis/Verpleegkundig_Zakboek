@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="nl.verpleegkundigzakboek.www.verpleegkundigzakboek.Druppelsnelheid">
+    android:paddingTop="56dp">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/invoermilliliters"
+        android:id="@+id/etInvoermilliliters"
         android:layout_gravity="right|top"
         android:layout_marginTop="60dp"
         android:layout_marginRight="5dp" />
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/invoeruren"
+        android:id="@+id/etInvoeruren"
         android:layout_gravity="right|top"
         android:layout_marginTop="110dp"
         android:layout_marginRight="5dp" />
