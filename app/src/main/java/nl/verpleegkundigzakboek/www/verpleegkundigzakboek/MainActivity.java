@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_share) {
-            SelectCardFragment fragment = new SelectCardFragment();
+            Handelingen fragment = new Handelingen();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);

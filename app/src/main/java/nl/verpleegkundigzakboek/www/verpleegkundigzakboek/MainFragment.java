@@ -98,7 +98,7 @@ public class MainFragment extends Fragment {
             final AlertDialog alert = new AlertDialog.Builder(getActivity())
                     .create();
             alert.setTitle("Error");
-            alert.setMessage("Sorry, your device doesn't support flash light!");
+            alert.setMessage("Sorry, uw apparaat ondersteund geen zaklamp!");
             alert.setCancelable(true);
             alert.show();
         }

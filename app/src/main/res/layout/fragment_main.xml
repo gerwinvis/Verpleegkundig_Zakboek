@@ -10,34 +10,6 @@
         android:layout_centerHorizontal="true"
         android:paddingTop="16dp">
 
-        <TextView
-            android:id="@+id/tvStart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="start"
-            android:textColor="#000000"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/tvStop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/tvStart"
-            android:padding="16dp"
-            android:text="stop"
-            android:textColor="#000000"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/tvReset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/tvStop"
-            android:padding="16dp"
-            android:text="reset"
-            android:textColor="#000000"
-            android:textSize="18sp" />
     </RelativeLayout>
 
     <utils.Chronometer
@@ -48,7 +20,8 @@
         android:layout_centerHorizontal="true"
         android:text="00:00:00"
         android:textColor="#000000"
-        android:textSize="60dp" />
+        android:textSize="60dp"
+        android:layout_marginTop="25dp" />
 
     <TextView
         android:id="@+id/hmsTekst"
@@ -63,9 +36,9 @@
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:layout_below="@+id/hmsTekst"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="70dp"
         android:background="#000000" />
 
 
@@ -75,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/view"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="40dp"
         android:background="@null"
         android:contentDescription="@null"
         android:src="@drawable/btn_switch_on" />
@@ -83,12 +56,84 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lightswitch"
+        android:text="Zaklamp"
         android:textSize="24sp"
         android:textColor="#000000"
         android:padding="8dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/btnSwitch"/>
+        android:layout_below="@+id/btnSwitch"
+        android:id="@+id/textView2"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="start"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:layout_below="@+id/chronometer"
+        android:layout_alignStart="@+id/chronometer"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="stop"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:layout_below="@+id/chronometer"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="reset"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/tvStop"
+        android:layout_alignEnd="@+id/chronometer"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="45dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vertrouw op uw kennis en ervaring,"
+        android:id="@+id/textView3"
+        android:layout_alignTop="@+id/view2"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textColor="#666666"
+        android:textSize="18dp"
+        android:textStyle="italic"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="gebruik deze app als hulpmiddel."
+        android:id="@+id/textView4"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:textStyle="italic"
+        android:textSize="18dp"
+        android:textColor="#666666"
+        android:textAlignment="center" />
 
 
 </RelativeLayout>

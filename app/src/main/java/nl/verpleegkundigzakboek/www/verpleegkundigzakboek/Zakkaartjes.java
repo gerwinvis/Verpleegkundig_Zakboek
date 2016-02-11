@@ -41,14 +41,14 @@ public class Zakkaartjes extends Fragment {
         tv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openSelectCardFragment();
+                openSelectCardFragment2();
             }
         });
         
         tv3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openSelectCardFragment();
+                openSelectCardFragment3();
             }
         });
         
@@ -58,6 +58,28 @@ public class Zakkaartjes extends Fragment {
     private void openSelectCardFragment() {
 
         SelectCardFragment fragment = new SelectCardFragment();
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                getActivity().getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+//        fragmentTransaction.isAddToBackStackAllowed();
+//        fragmentTransaction.addToBackStack("");
+        fragmentTransaction.commit();
+
+    }
+    private void openSelectCardFragment2() {
+
+        SelectCardFragment fragment = new SelectCardFragment();
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                getActivity().getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+//        fragmentTransaction.isAddToBackStackAllowed();
+//        fragmentTransaction.addToBackStack("");
+        fragmentTransaction.commit();
+
+    }
+    private void openSelectCardFragment3() {
+
+        SelectCardFragment3 fragment = new SelectCardFragment3();
         android.support.v4.app.FragmentTransaction fragmentTransaction =
                 getActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);
