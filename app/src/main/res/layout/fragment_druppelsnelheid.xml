@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Druppelsnelheid 20 druppels per ml"
+        android:text="Druppels per minuut"
         android:id="@+id/head_20"
         android:layout_gravity="center_horizontal|top"
         android:layout_marginTop="30dp" />
@@ -73,10 +73,56 @@
         android:singleLine="false" />
 
     <TextView
-        android:layout_width="222dp"
-        android:layout_height="51dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bij 20 druppels per ml"
+        android:id="@+id/textView6"
+        android:layout_gravity="left|top"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bij 18 druppels per ml"
+        android:id="@+id/textView9"
+        android:layout_gravity="left|top"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="5dp" />
+
+    <TextView
+        android:layout_width="177dp"
+        android:layout_height="45dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/uitkomstdruppelsperminuut"
-        android:layout_gravity="right|top"
-        android:layout_marginTop="160dp" />
+        android:id="@+id/uitkomstdruppelsperminuut20"
+        android:layout_gravity="left|top"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="150dp" />
+
+    <TextView
+        android:layout_width="192dp"
+        android:layout_height="45dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/uitkomstdruppelsperminuut18"
+        android:layout_gravity="left|top"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="150dp" />
+
+    <TextView
+        android:layout_width="192dp"
+        android:layout_height="45dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/uitkomstdruppelsperminuut16"
+        android:layout_gravity="left|top"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="150dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bij 16 druppels per ml"
+        android:id="@+id/textView11"
+        android:layout_gravity="left|top"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="5dp" />
 </FrameLayout>

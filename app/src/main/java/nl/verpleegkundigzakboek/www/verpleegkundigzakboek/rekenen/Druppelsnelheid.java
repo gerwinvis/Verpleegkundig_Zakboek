@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -36,6 +37,8 @@ public class Druppelsnelheid extends Fragment {
     private EditText etMillimeters, etUren;
     private Button btBereken;
     private TextView tvResult;
+    private TextView tvResult2;
+    private TextView tvResult3;
 
 
     private OnFragmentInteractionListener mListener;
@@ -79,7 +82,9 @@ public class Druppelsnelheid extends Fragment {
         etMillimeters = (EditText) view.findViewById(R.id.etInvoermilliliters);
         etUren = (EditText) view.findViewById(R.id.etInvoeruren);
         btBereken = (Button) view.findViewById(R.id.button_20);
-        tvResult = (TextView) view.findViewById(R.id.uitkomstdruppelsperminuut);
+        tvResult = (TextView) view.findViewById(R.id.uitkomstdruppelsperminuut20);
+        tvResult2 = (TextView) view.findViewById(R.id.uitkomstdruppelsperminuut18);
+        tvResult3 = (TextView) view.findViewById(R.id.uitkomstdruppelsperminuut16);
 
         btBereken.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +97,14 @@ public class Druppelsnelheid extends Fragment {
                     } else {
                         tvResult.setText(roundOffTo2DecPlaces((Float.parseFloat(etMillimeters.getText().toString()) * 20)
                                 / (Float.parseFloat(etUren.getText().toString()) * 60)));
+                        tvResult2.setText(roundOffTo2DecPlaces((Float.parseFloat(etMillimeters.getText().toString()) * 18)
+                                / (Float.parseFloat(etUren.getText().toString()) * 60)));
+                        tvResult3.setText(roundOffTo2DecPlaces((Float.parseFloat(etMillimeters.getText().toString()) * 16)
+                                / (Float.parseFloat(etUren.getText().toString()) * 60)));
+
+                        InputMethodManager inputMgr = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                        EditText editText = (EditText)getView().findViewById(R.id.etInvoeruren);
+                        inputMgr.hideSoftInputFromWindow(editText.getWindowToken(), 0);
                     }
                 }
             }
@@ -101,7 +114,7 @@ public class Druppelsnelheid extends Fragment {
     }
 
     private String roundOffTo2DecPlaces(float val) {
-        return String.format("%.2f", val);
+        return String.format("%.0f", val);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

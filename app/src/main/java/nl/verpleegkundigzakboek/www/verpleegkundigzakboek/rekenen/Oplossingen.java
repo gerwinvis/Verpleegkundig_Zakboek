@@ -19,12 +19,12 @@ import nl.verpleegkundigzakboek.www.verpleegkundigzakboek.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Zuurstof.OnFragmentInteractionListener} interface
+ * {@link Oplossingen.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Zuurstof#newInstance} factory method to
+ * Use the {@link Oplossingen#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Zuurstof extends Fragment {
+public class Oplossingen extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -36,7 +36,7 @@ public class Zuurstof extends Fragment {
     private String mParam2;
     private String mParam3;
 
-    private EditText etBarfles, etInhoudfles, etLitersperminuut;
+    private EditText etaanwezig, etnodig, etmlnodig;
     private Button btBereken;
     private TextView tvResult;
     private TextView tvResult2;
@@ -44,7 +44,7 @@ public class Zuurstof extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public Zuurstof() {
+    public Oplossingen() {
         // Required empty public constructor
     }
 
@@ -55,11 +55,11 @@ public class Zuurstof extends Fragment {
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
      * @param param3 Parameter 3.
-     * @return A new instance of fragment Druppelsnelheid.
+     * @return A new instance of fragment Oplossingen.
      */
     // TODO: Rename and change types and number of parameters
-    public static Zuurstof newInstance(String param1, String param2,String param3 ) {
-        Zuurstof fragment = new Zuurstof();
+    public static Oplossingen newInstance(String param1, String param2,String param3 ) {
+        Oplossingen fragment = new Oplossingen();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -82,56 +82,55 @@ public class Zuurstof extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_zuurstof, container, false);
-        etBarfles = (EditText) view.findViewById(R.id.etBarinfles);
-        etInhoudfles = (EditText) view.findViewById(R.id.etInhoudfles);
-        etLitersperminuut =(EditText) view.findViewById(R.id.etLitersperminuut);
+        View view = inflater.inflate(R.layout.fragment_oplossingen, container, false);
+        etaanwezig = (EditText) view.findViewById(R.id.etaanwezig);
+        etnodig = (EditText) view.findViewById(R.id.etnodig);
+        etmlnodig =(EditText) view.findViewById(R.id.etmlnodig);
         btBereken = (Button) view.findViewById(R.id.button_20);
-        tvResult = (TextView) view.findViewById(R.id.uitkomsturen);
-        tvResult2 = (TextView) view.findViewById(R.id.uitkomstminuten);
+        tvResult = (TextView) view.findViewById(R.id.uitkomstoplossing);
+        tvResult2 = (TextView) view.findViewById(R.id.uitkomstwater);
 
-        btBereken.setOnClickListener(new View.OnClickListener() {
+       btBereken.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (etBarfles.getText().toString().equals("")) {
-                    Toast.makeText(getActivity(), "Vul zowel bar in fles, inhoud fles als liters per minuut in!", Toast.LENGTH_SHORT).show();
+                if (etaanwezig.getText().toString().equals("")) {
+                    Toast.makeText(getActivity(), "Vul zowel % aanwezig, % nodig als ml nodig in!", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (etInhoudfles.getText().toString().equals("")) {
-                        Toast.makeText(getActivity(), "Vul zowel bar in fles, inhoud fles als liters per minuut in!", Toast.LENGTH_SHORT).show();
+                    if (etnodig.getText().toString().equals("")) {
+                        Toast.makeText(getActivity(), "Vul zowel % aanwezig, % nodig als ml nodig in!", Toast.LENGTH_SHORT).show();
                     } else {
-                        if (etLitersperminuut.getText().toString().equals("")) {
-                            Toast.makeText(getActivity(), "Vul zowel bar in fles, inhoud fles als liters per minuut in!", Toast.LENGTH_SHORT).show();
+                        if (etmlnodig.getText().toString().equals("")) {
+                            Toast.makeText(getActivity(), "Vul zowel % aanwezig, % nodig als ml nodig in!", Toast.LENGTH_SHORT).show();
                         } else {
+                            Integer input1 = Integer.parseInt(etnodig.getText().toString());
+                            Integer input2 = Integer.parseInt(etaanwezig.getText().toString());
+                            if (input1 > input2) {
+                                Toast.makeText(getActivity(), " De gevraagde oplossing kan niet groter zijn dan de gegeven oplossing", Toast.LENGTH_SHORT).show();
+                            } else {
+                            tvResult.setText(roundOffTo2DecPlaces((Float.parseFloat(etnodig.getText().toString()) / Float.parseFloat(etaanwezig.getText().toString()))
+                                    * Float.parseFloat(etmlnodig.getText().toString())));
+                            tvResult2.setText(roundOffTo2DecPlaces(Float.parseFloat(etmlnodig.getText().toString())
+                                    - ((Float.parseFloat(etnodig.getText().toString()) / Float.parseFloat(etaanwezig.getText().toString()) )
+                                    * Float.parseFloat(etmlnodig.getText().toString()))));
+
+                            InputMethodManager inputMgr = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                            EditText editText = (EditText) getView().findViewById(R.id.etmlnodig);
+                            inputMgr.hideSoftInputFromWindow(editText.getWindowToken(), 0);
                         }
-                        tvResult.setText(String.valueOf
-                                        ((int) Math.floor
-                                        (
-                                (Float.parseFloat(etBarfles.getText().toString())
-                                        *
-                                (Float.parseFloat(etInhoudfles.getText().toString()))
-                                        /
-                                (Float.parseFloat(etLitersperminuut.getText().toString())))
-                                        /
-                                60)
-                                )
-                        );
-                        tvResult2.setText(roundOffTo2DecPlaces(((((Float.parseFloat(etBarfles.getText().toString()) * Float.parseFloat(etInhoudfles.getText().toString()))
-                                / Float.parseFloat(etLitersperminuut.getText().toString())) / 60) - Float.parseFloat(tvResult.getText().toString()))*60));
-
-                        InputMethodManager inputMgr = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                        EditText editText = (EditText)getView().findViewById(R.id.etLitersperminuut);
-                        inputMgr.hideSoftInputFromWindow(editText.getWindowToken(), 0);
-
+                        }
                     }
                 }
-
             }
         });
+
+
 
         return view;
     }
 
-    private String roundOffTo2DecPlaces(float val) {return String.format("%.0f", val);}
+    private String roundOffTo2DecPlaces(float val) {
+        return String.format("%.2f", val);
+    }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

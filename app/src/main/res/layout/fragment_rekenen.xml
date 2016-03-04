@@ -12,4 +12,20 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zuurstof"
+        android:id="@+id/button_zuurstof"
+        android:layout_below="@+id/button_druppelsnelheid"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Oplossingen"
+        android:id="@+id/button_oplossingen"
+        android:layout_below="@+id/button_zuurstof"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
